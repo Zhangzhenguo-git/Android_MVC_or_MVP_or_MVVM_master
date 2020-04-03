@@ -1,39 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
-    <TextView
-        android:id="@+id/tv_ShowData"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--    定义变量名-->
+<!--    公共化全路径Model中的bean类-->
+<!--    <data>-->
+<!--        <import type="com.example.mvvm.model.User"></import>-->
+<!--        <variable-->
+<!--            name="usersInfo"-->
+<!--            type="User">-->
+<!--        </variable>-->
+<!--    </data>-->
+
+<!--    定义变量名-->
+<!--    私有化全路径Model中的bean类-->
+    <data>
+        <variable
+            name="userInfo"
+            type="com.example.mvvm.model.User">
+        </variable>
+    </data>
+
+<!--    如果存在 import 的类名相同的情况，可以使用 alias 指定别名-->
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       android:orientation="vertical">
-       <Button
-           android:id="@+id/bt_SetData"
-           android:layout_width="match_parent"
-           android:layout_height="80dp"
-           android:textSize="30sp"
-           android:text="设置数据"/>
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
 
-       <Button
-           android:id="@+id/bt_GetData"
-           android:layout_width="match_parent"
-           android:layout_height="80dp"
-           android:textSize="30sp"
-           android:text="获取数据"/>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@{userInfo.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center" />
 
-       <Button
-           android:id="@+id/bt_Save"
-           android:layout_width="match_parent"
-           android:layout_height="80dp"
-           android:textSize="30sp"
-           android:text="提交"/>
+        <TextView
+            android:id="@+id/tvPwd"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@{userInfo.pwd}"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
 
-   </LinearLayout>
-</RelativeLayout>
+            android:gravity="center" />
+        <Button
+            android:id="@+id/bt_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="20dp"
+            android:text="登录" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

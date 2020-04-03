@@ -10,7 +10,6 @@
         android:id="@+id/email_login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_ShowData"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
